@@ -53,7 +53,7 @@
 // }
 
 import DashboardLayout from "@/components/layout/layout";
-import DashboardIndex from "@/components/pages/Dashboard";
+import DashboardIndex from "@/components/pages/dashboard/Dashboard";
 import React from "react";
 const breadCrumb = [
   {
