@@ -18,8 +18,8 @@ import React from "react";
 export default function DashboardLayout({ children, breadCrumb }) {
   return (
     <div className="px-4 lg:px-6">
-      <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
+      <SidebarInset className="relative">
+        <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12 sticky top-0 bg-primary-foreground z-100 px-6 ">
           <div className="flex items-center gap-2">
             <SidebarTrigger className="-ml-1" />
             <Separator

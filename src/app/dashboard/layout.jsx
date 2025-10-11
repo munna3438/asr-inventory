@@ -7,7 +7,9 @@ export default function Dashboard({ children }) {
     <div>
       <SidebarProvider>
         <AppSidebar />
-        <SidebarInset>{children}</SidebarInset>
+        <SidebarInset className="bg-primary-foreground">
+          {children}
+        </SidebarInset>
       </SidebarProvider>
     </div>
   );
