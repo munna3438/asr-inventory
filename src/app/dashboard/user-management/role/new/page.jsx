@@ -1,7 +1,5 @@
 import DashboardLayout from "@/components/layout/layout";
-import DashboardIndex from "@/components/pages/dashboard/Dashboard";
-import UserList from "@/components/pages/dashboard/user-management/users/List";
-import { Card } from "@/styles/components/ui/card";
+import UserForm from "@/components/pages/dashboard/user-management/users/Form";
 import React from "react";
 const breadCrumb = [
   {
@@ -13,15 +11,18 @@ const breadCrumb = [
     text: "user-management",
   },
   {
-    text: "Permission",
+    href: "/dashboard/user-management/users",
+    text: "Users",
+  },
+  {
+    text: "New",
   },
 ];
 
 export default function Dashboard() {
   return (
     <DashboardLayout breadCrumb={breadCrumb}>
-      {/* <UserList /> */}
-      <Card />
+      <UserForm />
     </DashboardLayout>
   );
 }

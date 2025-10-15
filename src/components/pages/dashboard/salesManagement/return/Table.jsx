@@ -6,6 +6,7 @@ import {
   getPaginationRowModel,
   useReactTable,
   getSortedRowModel,
+  getFilteredRowModel,
 } from "@tanstack/react-table";
 
 import {
@@ -46,7 +47,7 @@ import {
   SelectValue,
 } from "@/styles/components/ui/select";
 
-export function DataTable({ data }) {
+export function UsersTable({ data, setSearch, search }) {
   const [sorting, setSorting] = useState([]);
 
   const columns = [
@@ -150,14 +151,18 @@ export function DataTable({ data }) {
     getPaginationRowModel: getPaginationRowModel(),
     onSortingChange: setSorting,
     getSortedRowModel: getSortedRowModel(),
+    onColumnFiltersChange: setSearch,
+    getFilteredRowModel: getFilteredRowModel(),
     state: {
       sorting,
+      globalFilter: search,
     },
+    onGlobalFilterChange: setSearch,
   });
 
   return (
     <div>
-      <div className="overflow-hidden rounded-md border bg-white">
+      <div className="overflow-hidden rounded-md border">
         <Table>
           <TableHeader className="bg-muted">
             {table.getHeaderGroups().map((headerGroup) => (

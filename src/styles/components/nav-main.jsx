@@ -20,7 +20,7 @@ import {
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export function NavMain({ items, title }) {
+export function NavMain({ items }) {
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
 
@@ -29,7 +29,7 @@ export function NavMain({ items, title }) {
   }, []);
   return (
     <SidebarGroup>
-      {title ? <SidebarGroupLabel>{title}</SidebarGroupLabel> : ""}
+      <SidebarGroupLabel>Platform</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
           <Collapsible
@@ -50,7 +50,7 @@ export function NavMain({ items, title }) {
                 <SidebarMenuSub>
                   {item.items?.map((subItem) => (
                     <SidebarMenuSubItem key={subItem.title}>
-                      <SidebarMenuSubButton asChild>
+                      <SidebarMenuSubButton asChild isActive={subItem.isActive}>
                         <a href={subItem.url}>
                           <span>{subItem.title}</span>
                         </a>

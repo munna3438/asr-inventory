@@ -8,8 +8,8 @@ export default function DashboardLogo() {
       size="lg"
       className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground h-[70px]"
     >
-      <div className="bg-white text-sidebar-primary-foreground flex aspect-square size-full items-center justify-center rounded-lg overflow-hidden">
-        <img className="" src="/logo/transparent_logo1.png" />
+      <div className=" text-sidebar-primary-foreground flex aspect-square size-full items-center justify-center rounded-lg overflow-hidden">
+        <img className="w-full" src="/logo/vartical_logo.jpg" />
       </div>
     </a>
   );

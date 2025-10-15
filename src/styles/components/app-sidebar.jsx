@@ -2,6 +2,7 @@
 
 import {
   AudioWaveform,
+  BadgeDollarSign,
   BookOpen,
   Bot,
   Command,
@@ -40,6 +41,8 @@ export function AppSidebar({ ...props }) {
     if (openMobile) setOpenMobile(false);
   }, [pathname]);
 
+  const checkActive = (base) =>
+    pathname === base || pathname.startsWith(`${base}/`);
   // This is sample data.
   const data = {
     user: {
@@ -69,84 +72,61 @@ export function AppSidebar({ ...props }) {
         title: "User Management",
         url: "#",
         icon: UserCog,
-        isActive: true,
+        // isActive: pathname.startsWith("/dashboard/user-management"),
+        isActive: checkActive("/dashboard/user-management"),
         items: [
           {
             title: "Users",
             url: "/dashboard/user-management/users",
+            isActive: checkActive("/dashboard/user-management/users"),
           },
           {
-            title: "Starred",
-            url: "#",
+            title: "Role",
+            url: "/dashboard/user-management/role",
+            isActive: checkActive("/dashboard/user-management/role"),
           },
           {
-            title: "Settings",
-            url: "#",
-          },
-        ],
-      },
-      {
-        title: "Models",
-        url: "#",
-        icon: Bot,
-        items: [
-          {
-            title: "Genesis",
-            url: "#",
-          },
-          {
-            title: "Explorer",
-            url: "#",
-          },
-          {
-            title: "Quantum",
-            url: "#",
+            title: "Permission",
+            url: "/dashboard/user-management/permission",
+            isActive: checkActive("/dashboard/user-management/permission"),
           },
         ],
       },
       {
-        title: "Documentation",
+        title: "Sales Management",
         url: "#",
-        icon: BookOpen,
+        icon: BadgeDollarSign,
+        isActive: checkActive("/dashboard/sales-management"),
         items: [
           {
-            title: "Introduction",
-            url: "#",
+            title: "Customer",
+            url: "/dashboard/sales-management/customer",
+            isActive: checkActive("/dashboard/sales-management/customer"),
           },
           {
-            title: "Get Started",
-            url: "#",
+            title: "Sales",
+            url: "/dashboard/sales-management/sales",
+            isActive: checkActive("/dashboard/sales-management/sales"),
           },
           {
-            title: "Tutorials",
-            url: "#",
+            title: "Collection",
+            url: "/dashboard/sales-management/collection",
+            isActive: checkActive("/dashboard/sales-management/collection"),
           },
           {
-            title: "Changelog",
-            url: "#",
-          },
-        ],
-      },
-      {
-        title: "Settings",
-        url: "#",
-        icon: Settings2,
-        items: [
-          {
-            title: "General",
-            url: "#",
+            title: "Quotation",
+            url: "/dashboard/sales-management/quotation",
+            isActive: checkActive("/dashboard/sales-management/quotation"),
           },
           {
-            title: "Team",
-            url: "#",
+            title: "Return",
+            url: "/dashboard/sales-management/return",
+            isActive: checkActive("/dashboard/sales-management/return"),
           },
           {
-            title: "Billing",
-            url: "#",
-          },
-          {
-            title: "Limits",
-            url: "#",
+            title: "Pos",
+            url: "/dashboard/sales-management/pos",
+            isActive: checkActive("/dashboard/sales-management/pos"),
           },
         ],
       },
@@ -178,7 +158,7 @@ export function AppSidebar({ ...props }) {
         {/* <TeamSwitcher teams={data.teams} /> */}
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} title="Sales" />
+        <NavMain items={data.navMain} />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
